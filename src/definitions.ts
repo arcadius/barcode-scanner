@@ -124,7 +124,7 @@ export interface StopScanOptions {
   resolveScan?: boolean;
 }
 
-export type ScanResult = {
+export interface ScanResult {
   /**
    * This indicates whether or not the scan resulted in readable content.
    * When stopping the scan with `resolveScan` set to `true`, for example,
@@ -132,7 +132,7 @@ export type ScanResult = {
    *
    * @since 1.0.0
    */
-  hasContent: true;
+  hasContent?: boolean;
 
   /**
    * This holds the content of the barcode if available.
@@ -147,29 +147,6 @@ export type ScanResult = {
    * @since 2.1.0
    */
   format: string;
-} | { 
-  /**
-   * This indicates whether or not the scan resulted in readable content.
-   * When stopping the scan with `resolveScan` set to `true`, for example,
-   * this parameter is set to `false`, because no actual content was scanned.
-   *
-   * @since 1.0.0
-   */
-  hasContent: false;
-
-  /**
-   * This holds the content of the barcode if available.
-   *
-   * @since 1.0.0
-   */
-  content: undefined;
-
-  /**
-   * This returns format of scan result.
-   *
-   * @since 2.1.0
-   */
-  format: undefined;
 }
 
 export interface CheckPermissionOptions {
